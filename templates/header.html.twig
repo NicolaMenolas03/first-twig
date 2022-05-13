@@ -1,0 +1,22 @@
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+        <img src= '/static/img/logo.png' width="30" height="30" class="d-inline-block align-top" alt="">
+         GIPHY
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% for item in menu %}
+                
+                    <li class="nav-item active">
+                        <a class="nav-link {% if item.active %}active{% endif %}" href= {{ item.href }}> {{ item.text }} <span class="sr-only">(current)</span></a>
+                    </li>
+
+                {% endfor %}
+                
+            </ul>
+        </div>
+    </nav>
+</body>
+

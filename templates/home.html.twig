@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <body>
+
+        <p>
+            <form method="post">
+                <input type="text" name="cerca">
+                <input type="submit" name="invio">
+            </form>
+        </p>
+        
+        {% for item in result %}
+            {{ item }}
+        {% endfor %}
+
+    </body>
+{% endblock %}
