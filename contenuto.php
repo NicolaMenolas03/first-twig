@@ -4,6 +4,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+use GuzzleHttp\Client;
+
+
 
 $loader = new FilesystemLoader(__DIR__ . '/templates');
 $twig = new Environment($loader, [
@@ -11,19 +14,35 @@ $twig = new Environment($loader, [
   ]);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
+$data=array();
+
+
+$client = new Client();
+
+
+
+// Create a GET request using Relative to base URL
+// URL of the request: http://baseurl.com/api/v1/path?query=123&value=abc)
+
+$api='KbBBIL0bvPv8NVVI3cPZyu3fMIyp8BJE';
+
 
 $template = $twig->load('home.html.twig');
 $result=array();
 
-if (isset($_POST["Invia"])){
-  if (!$_POST["cerca"]){
-    $giphy = new \rfreebern\Giphy("UWu1vi9MIfno890nrIhXlYEP1b2F0Fa5");
-    $result = search($_POST["cerca"], $limit = 25, $offset = 0);
+if (isset($_POST["invio"])&&isset($_POST["cerca"])){
+    $request = $client->get('https://api.giphy.com/v1/gifs/search?q='.$_POST["cerca"]."&api_key=".$api);
+    if ($request->getBody()) {
+      $body = $request->getBody();
+      echo $body;
+
+      // JSON string: { ... }
   }
 }
 
 echo $template->render([
-  $result
+
+  $body
 ]);
 
 ?>
