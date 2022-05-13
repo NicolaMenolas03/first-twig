@@ -4,53 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a4fa1dbff83a9dff9aee2c2498d3a5d",
+    "content-hash": "9a0fa8ad062673a8ac0811ab2e3cf1a0",
     "packages": [
-        {
-            "name": "rfreebern/giphy-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rfreebern/giphy-php.git",
-                "reference": "131065011f429ba42e05cfb84689c316600f13e2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rfreebern/giphy-php/zipball/131065011f429ba42e05cfb84689c316600f13e2",
-                "reference": "131065011f429ba42e05cfb84689c316600f13e2",
-                "shasum": ""
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "rfreebern": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "CC0-1.0"
-            ],
-            "authors": [
-                {
-                    "name": "Ryan Freebern",
-                    "email": "ryan@freebern.org"
-                }
-            ],
-            "description": "A library implementing access to the Giphy API.",
-            "keywords": [
-                "gif",
-                "gifs",
-                "giphy",
-                "images",
-                "search"
-            ],
-            "support": {
-                "issues": "https://github.com/rfreebern/giphy-php/issues",
-                "source": "https://github.com/rfreebern/giphy-php/tree/master"
-            },
-            "time": "2018-03-25T21:17:41+00:00"
-        },
         {
             "name": "symfony/polyfill-ctype",
             "version": "v1.25.0",
@@ -296,12 +251,12 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "rfreebern/giphy-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "composer": "^2.3"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
 }

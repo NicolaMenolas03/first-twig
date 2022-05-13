@@ -1,6 +1,6 @@
 {
     "require": {
         "twig/twig": "^3.0",
-        "rfreebern/giphy-php": "dev-master"
+        "composer": "^2.3"
     }
 }
