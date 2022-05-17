@@ -9,9 +9,8 @@
             </form>
         </p>
         
-        {% for i in 0..49 %}
-            {{ img }}
+        {% for elements in body %}
+                {{ body.elements }}
         {% endfor %}
-
     </body>
 {% endblock %}
