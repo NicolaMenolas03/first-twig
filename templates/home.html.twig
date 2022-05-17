@@ -2,15 +2,21 @@
 {% block content %}
     <body>
 
-        <p>
-            <form method="post">
-                <input type="text" name="cerca">
-                <input type="submit" name="invio">
-            </form>
-        </p>
-        
-        {% for elements in body %}
-                {{ body.elements }}
-        {% endfor %}
+        <div class="container">
+            <p>
+                <form method="post" class="contact-form">
+                    <input type="text" class="form-control" name="cerca" placeholder="meme"><br>
+                    <input type="submit" class="form-control" name="invio" style="background: #FF7E7E;">
+                </form>
+            </p>
+            
+            {% for d in dati %}
+                <img src="{{ d.embed }}">
+                {{ d.title }}
+                {{ d.username }} 
+                <br><br><br>
+            {% endfor %}
+        </div>
+
     </body>
 {% endblock %}

@@ -1,0 +1,31 @@
+/* Container holding the image and the text */
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+  }
+  
+  .contact-form .form-control {
+    background: white;
+    height: 63px;
+    width: 322px;
+    margin: 14px 0;
+    border-color: black;
+  }
+
+  .contact-form #submit-button {
+    background: #FF7E7E;
+    border-radius: 2;
+    color: white;
+    cursor: pointer;
+    font-size: 25;
+    height: 63px;
+    width: 322px;
+    border-color: black;
+
+
+  }
+
+  .newsletter-form button {
+    background: #FF7E7E;
+  }
