@@ -44,7 +44,13 @@ if (isset($_POST["invio"])&&isset($_POST["cerca"])){
 
 
 echo $template->render([
-  'dati' => $data
+  'dati' => $data,
+  'menu' => [
+
+        [ 'href'=> "SceltaDate.php", "text"=>"Prenota", "active" => false ],
+        [ 'href'=> "InserisciCasa.php", "text"=>"Affitta", "active" => false ],
+        [ 'href'=> "#footer", "text"=>"Contattaci", "active" => false ]
+    ]
 ]);
 
 ?>
