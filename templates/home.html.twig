@@ -1,8 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block js %}
 
-{% endblock %}
 {% block content %}
     <body>
 
@@ -16,6 +14,13 @@
             </p>
             
             {% for d in dati %}
+            
+            {% block js %}
+                <script>
+                    var iframe = "<iframe width="{{ d.width }}" height="{{ d.height }}" src=" {{ d.embed }} " title="{{ d.title }}" frameborder="0" allowfullscreen></iframe>";
+                </script>
+            {% endblock %}
+
             <div class="gifComponent" style="background-image: url({{ d.url }})">
                 <div class="top">
                     <h4 class="author">
@@ -32,7 +37,7 @@
                     </h7>
                 </div>
                 <div class="bottom">
-                    <img src="static/img/icon1.png" class="icon">
+                    <img src="static/img/icon1.png" class="icon" onclick=CopyMe() >
                     <a><img src="static/img/icon2.png" class="icon"></a> 
 
                 </div>
@@ -41,6 +46,16 @@
             </div>
             
             {% endfor %}
-            </div>
+
+            <form method="post">
+                {% for i in 1..10 %}
+
+                    <input type="submit" name="{{ i }}" value="{{ i }}">
+                {% endfor %}
+            </form>
+            
+        </div>
     </body>
+    
+    
 {% endblock %}
