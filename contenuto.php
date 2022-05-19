@@ -28,13 +28,14 @@ if (isset($_POST["invio"])&&isset($_POST["cerca"])){
     if ($request->getBody()) {
 
       $body = $request->getBody()->getContents();
-      $data=json_decode($body, true);
-      $body= $data["data"];
+      $received_json=json_decode($body, true);
+      $body= $received_json["data"];
       for ($i=0;$i<20;$i++){
         array_push($data, [
-          'embed' => $body[$i]["images"]["original"]["url"],
-          'title' =>$body[$i]["title"],
-          'username' => $body[$i]["username"]
+          'url' => $body[$i]["images"]["original"]["url"],
+          'title' => $body[$i]["title"],
+          'username' => $body[$i]["username"],
+          'date' => $body[$i]['import_datetime']
         ]);
       }
 
