@@ -17,7 +17,23 @@
             
             {% block js %}
                 <script>
-                    var iframe = "<iframe width="{{ d.width }}" height="{{ d.height }}" src=" {{ d.embed }} " title="{{ d.title }}" frameborder="0" allowfullscreen></iframe>";
+
+                    function copyToClipboard(text) {
+                        var sampleTextarea = document.createElement("textarea");
+                        document.body.appendChild(sampleTextarea);
+                        sampleTextarea.value = text; //save main text in it
+                        sampleTextarea.select(); //select textarea contenrs
+                        document.execCommand("copy");
+                        document.body.removeChild(sampleTextarea);
+                    }
+
+                    function iframe(width, height, src, title){
+                        let iframe = `<iframe width='${width}' height='${height}' src='${src}' title='${title}' frameborder='0' allowfullscreen></iframe>`;
+                    }
+
+                    function myFunction(url){
+                        copyToClipboard(url);
+                    }
                 </script>
             {% endblock %}
 
@@ -37,7 +53,7 @@
                     </h7>
                 </div>
                 <div class="bottom">
-                    <img src="static/img/icon1.png" class="icon" onclick=CopyMe() >
+                    <a onclick="myFunction('{{d.url}}')"><img src="static/img/icon1.png" class="icon"></a>
                     <a><img src="static/img/icon2.png" class="icon"></a> 
 
                 </div>
@@ -47,15 +63,16 @@
             
             {% endfor %}
 
+            {% block pages %}
             <form method="post">
                 {% for i in 1..10 %}
 
                     <input type="submit" class="pages-button" name="{{ i }}" value="{{ i }}">
                 {% endfor %}
             </form>
+            {% endblock %}
             
         </div>
     </body>
-    
     
 {% endblock %}

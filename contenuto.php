@@ -65,9 +65,9 @@ if (isset($_POST["invio"])){
   $data = request($client,$cerca,$api,$index,$data);
 }
 
-for ($i=0; $i<10; $i++){
+for ($i=0; $i<11; $i++){
   if (isset($_POST[$i])){
-    $index = $_POST[$i];
+    $index = $_POST[$i]-1;
   }
 }
 
