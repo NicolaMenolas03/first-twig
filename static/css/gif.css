@@ -106,3 +106,28 @@
   .top,.bottom{
     z-index:1;
   }
+
+  .pages-button{
+    background: #FF7E7E;
+    border-radius: 1px;
+    height: 2em;
+    width: 2em;
+    border: 0;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 14px;
+    margin: 15px 15px 15px 0px;
+  }
+  .pages-button:hover{
+    background: #c15a5a;
+    border-radius: 1px;
+    height: 2em;
+    width: 2em;
+    border: 0;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 14px;
+    margin: 15px 15px 15px 0px;
+  }
