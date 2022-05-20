@@ -54,8 +54,14 @@ function request($client,$cerca,$api,$index,$data){
 
 
 
-if (isset($_POST["invio"])&&isset($_POST["cerca"])){
-  $cerca = $_POST["cerca"];
+if (isset($_POST["invio"])){
+  if (!empty($_POST["cerca"])){  
+    $cerca = $_POST["cerca"];
+  }
+  else{
+    $cerca="meme";
+  }
+  $index=0;
   $data = request($client,$cerca,$api,$index,$data);
 }
 
