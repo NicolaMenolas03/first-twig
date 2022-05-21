@@ -83,14 +83,12 @@
             {% endfor %}
 
             {% block pages %}
-            <form method="post">
-                {% for i in 1..10 %}
-
-                    <input type="submit" class="pages-button" name="{{ i }}" value="{{ i }}">
-                {% endfor %}
-            </form>
+            <div class="rows">
+            {% for i in 1..10 %}
+                <a href="/contenuto.php?index={{ i }}" class="{% if index == i %}pages-button-confirm{% else %}pages-button{% endif %}">{{i}}</a> 
+            {% endfor %}
+            </div>
             {% endblock %}
-            
         </div>
     </body>
     

@@ -20,8 +20,7 @@ $client = new Client();
 $data=array();
 $api='KbBBIL0bvPv8NVVI3cPZyu3fMIyp8BJE';
 $cerca = "meme";
-$index= 0;
-
+$index = $_GET["index"];
 
 function request($client,$cerca,$api,$index,$data){
   $request = $client->get('https://api.giphy.com/v1/gifs/search?q='.$cerca."&api_key=".$api."&offset=".$index);
@@ -46,8 +45,9 @@ function request($client,$cerca,$api,$index,$data){
         'embed' => $body[$i]['embed_url']
       ]);
     }
+    return $data;
   }
-  return $data;
+  
 }
 
 
@@ -77,10 +77,9 @@ if (isset($index)){
 }
 
 
-
-
 echo $template->render([
-  'dati' => $data
+  'dati' => $data,
+  'index' => ($index/20)
 ]);
 
 ?>
