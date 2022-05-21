@@ -3,7 +3,6 @@
 
 {% block content %}
     <body>
-
         <div class="container">
             <h1>SHARE <br> YOUR GIF</h1>
             <p>
@@ -25,15 +24,15 @@
                         sampleTextarea.select(); //select textarea contenrs
                         document.execCommand("copy");
                         document.body.removeChild(sampleTextarea);
+                        alert("Copied!");
                     }
 
-                    function iframe(width, height, src, title){
-                        let iframe = `<iframe width='${width}' height='${height}' src='${src}' title='${title}' frameborder='0' allowfullscreen></iframe>`;
-                    }
+                    
 
                     function myFunction(url){
                         copyToClipboard(url);
                     }
+                    var selectedText=document.getElementById("editor").getSelectedText();
                 </script>
             {% endblock %}
 
@@ -54,12 +53,32 @@
                 </div>
                 <div class="bottom">
                     <a onclick="myFunction('{{d.url}}')"><img src="static/img/icon1.png" class="icon"></a>
-                    <a><img src="static/img/icon2.png" class="icon"></a> 
+                    <!-- Button trigger modal -->
+                    <button type="button" class="transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img src="static/img/icon2.png" class="icon">
+                    </button>
+
+
 
                 </div>
 
 
             </div>
+
+                                <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incorporate code</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="textarea" onclick="this.select()" class="textarea" value="<iframe width='{{d.width}}' height='{{d.height}}' src='{{d.url}}' title='{{d.rirle}}' frameborder='0' allowfullscreen></iframe>">
+                        </div> 
+                        </div>
+                    </div>
+                    </div>
             
             {% endfor %}
 
