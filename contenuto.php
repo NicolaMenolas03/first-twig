@@ -20,7 +20,12 @@ $client = new Client();
 $data=array();
 $api='KbBBIL0bvPv8NVVI3cPZyu3fMIyp8BJE';
 $cerca = "meme";
-$index = $_GET["index"];
+if (isset($_GET["index"])){
+  $index = $_GET["index"];
+}
+else{
+  $index = 0;
+}
 
 function request($client,$cerca,$api,$index,$data){
   $request = $client->get('https://api.giphy.com/v1/gifs/search?q='.$cerca."&api_key=".$api."&offset=".$index);
@@ -31,11 +36,11 @@ function request($client,$cerca,$api,$index,$data){
     $received_json=json_decode($body, true);
     $body= $received_json["data"];
     for ($i=0;$i<20;$i++){
+      if (!empty($body[$i])){
+        $date = (string) $body[$i]['import_datetime'];
+        $date = substr($date, 0, -8);
 
-      $date = (string) $body[$i]['import_datetime'];
-      $date = substr($date, 0, -8);
-
-      array_push($data, [
+        array_push($data, [
         'url' => $body[$i]["images"]["original"]["url"],
         'title' => $body[$i]["title"],
         'username' => $body[$i]["username"],
@@ -43,7 +48,19 @@ function request($client,$cerca,$api,$index,$data){
         'width' => $body[$i]['images']['original']['width'],
         'height' => $body[$i]['images']['original']['height'],
         'embed' => $body[$i]['embed_url']
-      ]);
+        ]);
+      }
+      else{
+        array_push($data, [
+          'url' => "https://media0.giphy.com/media/TqiwHbFBaZ4ti/giphy.gif?cid=7d5a2da8ci2ua84meg2gve01kxptblv2rbyd5eactsp1pxpt&rid=giphy.gif&ct=g",
+          'title' => "ERRORE",
+          'username' => "ERRORE",
+          'date' => "ERRORE",
+          'width' => "426",
+          'height' => "426",
+          'embed' => "https://media0.giphy.com/media/TqiwHbFBaZ4ti/giphy.gif?cid=7d5a2da8ci2ua84meg2gve01kxptblv2rbyd5eactsp1pxpt&rid=giphy.gif&ct=g"
+        ]);
+      }
     }
     return $data;
   }
